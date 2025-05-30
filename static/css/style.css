@@ -134,11 +134,36 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(rgba(78, 115, 223, 0.9), rgba(34, 74, 190, 0.9)), url('/static/img/hero-bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/static/img/city-morning-sunrise-5k-3i.jpg');
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 6rem 0;
+    padding: 8rem 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero .lead {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* Navigation */
