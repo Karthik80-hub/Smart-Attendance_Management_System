@@ -6,39 +6,60 @@
 {% block content %}
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-12">
             <div class="card shadow">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Take Attendance</h4>
+                    <div>
+                        <a href="/storage" class="btn btn-outline-light me-2">
+                            <i class="fas fa-table me-2"></i>View Records
+                        </a>
+                        <a href="/" class="btn btn-outline-light">
+                            <i class="fas fa-home me-2"></i>Back to Home
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <canvas id="mycanvas" width="550" height="400" class="border border-2 border-primary rounded w-100 mb-3"></canvas>
-                    
-                    <form action="/attendance" method="POST" onsubmit="return captureAndSubmit();" class="text-center">
-                        {% csrf_token %}
-                        <input type="hidden" id="capturedImageData" name="capturedImageDataa">
-                        <button type="submit" class="btn btn-primary btn-lg">
-                            <i class="fas fa-camera me-2"></i>Take Attendance
-                        </button>
-                    </form>
-
-                    {% if valu or current_datetime or dte or data or data_to_display %}
-                    <div class="mt-4">
-                        <h5 class="mb-3">Attendance Results</h5>
-                        {% if valu %}<p class="mb-2">{{ valu }}</p>{% endif %}
-                        {% if current_datetime %}<p class="mb-2">Time: {{ current_datetime }}</p>{% endif %}
-                        {% if dte %}<p class="mb-2">Date: {{ dte }}</p>{% endif %}
-                        {% if data %}<p class="mb-2">{{ data }}</p>{% endif %}
-                        {% if data_to_display %}<p class="mb-2">{{ data_to_display }}</p>{% endif %}
+                    {% if success %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>{{ success }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     {% endif %}
-                </div>
-            </div>
 
-            <div class="text-center mt-3">
-                <a href="/" class="btn btn-outline-primary">
-                    <i class="fas fa-home me-2"></i>Back to Home
-                </a>
+                    {% if error %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+
+                    {% if valu %}
+                    <div class="alert alert-info mb-4">
+                        <h5 class="mb-3">Attendance Details:</h5>
+                        <p class="mb-2"><strong>Name:</strong> {{ valu }}</p>
+                        <p class="mb-2"><strong>Time:</strong> {{ current_datetime }}</p>
+                        <p class="mb-0"><strong>Date:</strong> {{ dte }}</p>
+                    </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="text-center mb-4">
+                                <canvas id="mycanvas" width="540" height="390" class="border border-2 border-primary rounded w-100"></canvas>
+                            </div>
+                            <form action="/attendance" method="POST" onsubmit="return captureAndSubmit();">
+                                {% csrf_token %}
+                                <input type="hidden" id="capturedImageDataa" name="capturedImageDataa">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-camera me-2"></i>Take Attendance
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -57,8 +78,7 @@
         })
         .catch(function(error) {
             console.error('Error accessing webcam:', error);
-            // Show error message to user
-            c.parentElement.innerHTML = '<div class="alert alert-danger">Failed to access webcam. Please make sure your camera is connected and you have granted permission.</div>';
+            c.parentElement.innerHTML = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle me-2"></i>Failed to access webcam. Please make sure your camera is connected and you have granted permission.</div>';
         });
 
     function drawVideoToCanvas() {
@@ -67,14 +87,20 @@
     }
 
     function captureAndSubmit() {
-        captureImage();
-        return false;
+        try {
+            captureImage();
+            return true;
+        } catch (error) {
+            console.error('Error capturing image:', error);
+            alert('Failed to capture image. Please try again.');
+            return false;
+        }
     }
 
     function captureImage() {
         ctx.drawImage(webcamVideo, 0, 0, c.width, c.height);
         var dataURL = c.toDataURL('image/png');
-        document.getElementById('capturedImageData').value = dataURL;
+        document.getElementById('capturedImageDataa').value = dataURL;
         webcamVideo.pause();
         webcamVideo.srcObject.getTracks().forEach(track => track.stop());
     }
