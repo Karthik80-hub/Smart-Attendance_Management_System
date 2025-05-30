@@ -13,5 +13,7 @@ urlpatterns = [
    path('storage', views.store, name='storage'),
    path('register', views.register, name='register'),
    path('absenties', views.absenties, name='absenties'),
-   path('absentrecord', views.absentrecord, name='absentrecord')
+   path('absentrecord', views.absentrecord, name='absentrecord'),
+   path('privacy', views.privacy, name='privacy'),
+   path('terms', views.terms, name='terms')
 ]
