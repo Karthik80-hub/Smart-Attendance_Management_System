@@ -4,6 +4,12 @@ A modern, AI-powered attendance management system built with Django that leverag
 
 ## 🌟 Key Features
 
+### CI/CD Pipeline
+- **Jenkins Integration**: Automated deployment via Jenkins pipeline
+- **GitHub Webhooks**: Real-time triggers on code changes
+- **Quality Assurance**: Automated testing and deployment
+- **Production Ready**: Streamlined deployment process
+
 ### AI-Powered Features
 - **Face Recognition System**
   - Real-time facial detection and recognition
@@ -140,7 +146,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 5. Open a Pull Request
 
 ## 👨‍💻 Author
-- **Karthik Chunchu** - Full Stack Developer & AI Engineer
+- **Karthik Chunchu** - AI/ML Engineer & Full Stack Developer 
   - GitHub: [@Karthik80-hub](https://github.com/Karthik80-hub)
   - Live Demo: [Smart Attendance System](https://smart.karthikchunchu.com)
 
