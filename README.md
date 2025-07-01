@@ -2,7 +2,7 @@
 
 A modern, AI-powered attendance management system built with Django that leverages facial recognition technology for automated attendance tracking. Deployed on AWS EC2 with full CI/CD pipeline integration.
 
-## 🌟 Key Features
+## Key Features
 
 ### CI/CD Pipeline
 - **Jenkins Integration**: Automated deployment via Jenkins pipeline
@@ -43,7 +43,7 @@ A modern, AI-powered attendance management system built with Django that leverag
   - Attendance oversight
   - System configuration
 
-## 🚀 Cloud Deployment
+## Cloud Deployment
 
 ### AWS Infrastructure
 - **EC2 Instance**: Hosted on AWS EC2
@@ -60,7 +60,7 @@ A modern, AI-powered attendance management system built with Django that leverag
 - Optimized static file serving
 - Secure domain routing
 
-## 🛠️ Technical Stack
+## Technical Stack
 
 ### Backend
 - **Framework**: Django
@@ -87,7 +87,7 @@ A modern, AI-powered attendance management system built with Django that leverag
 - SSL/TLS encryption
 - Nginx security features
 
-## 📊 Usage
+## Usage
 
 ### For Administrators
 1. Log in to the admin dashboard
@@ -104,7 +104,7 @@ A modern, AI-powered attendance management system built with Django that leverag
 5. Access personal reports
 6. Update profile information
 
-## 📁 Project Structure
+## Project Structure
 ```
 Smart-Attendance_Management_System/
 ├── home/                 # Main application directory
@@ -116,7 +116,7 @@ Smart-Attendance_Management_System/
 └── db.sqlite3         # Database file
 ```
 
-## 🔧 Development
+## Development
 
 ### Key Components
 - **Models**: User, Attendance, Department, FacialData
@@ -132,25 +132,25 @@ Smart-Attendance_Management_System/
 - System settings
 - Facial recognition metadata
 
-## 🌐 Live Demo
+## Live Demo
 Visit [https://smart.karthikchunchu.com](https://smart.karthikchunchu.com) to experience the live application.
 
-## 📝 License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👥 Contributing
+## Contributing
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 👨‍💻 Author
+## Author
 - **Karthik Chunchu** - AI/ML Engineer & Full Stack Developer 
   - GitHub: [@Karthik80-hub](https://github.com/Karthik80-hub)
   - Live Demo: [Smart Attendance System](https://smart.karthikchunchu.com)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 - Django framework
 - OpenCV community
 - Bootstrap team
@@ -158,5 +158,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Jenkins CI/CD community
 - All contributors to the project
 
-## 📧 Contact
+## Contact
 For any queries or support, please open an issue in the repository.
